@@ -14,7 +14,7 @@ namespace Catalog.API.Repositories
 
         public ProductRepository(ICatalogContext catalogContext)
         {
-            _catalogContext = catalogContext ?? throw new ArgumentException(nameof(catalogContext));
+            _catalogContext = catalogContext ?? throw new ArgumentNullException(nameof(catalogContext));
         }
 
         public async Task<IEnumerable<Product>> GetProducts()
@@ -29,14 +29,14 @@ namespace Catalog.API.Repositories
 
         public async Task<IEnumerable<Product>> GetProductsByName(string name)
         {
-            FilterDefinition<Product> filter = Builders<Product>.Filter.ElemMatch(p => p.Name, name);
+            FilterDefinition<Product> filter = Builders<Product>.Filter.In("Name", new List<string> { name });
 
             return await _catalogContext.Products.Find(filter).ToListAsync();
         }
 
         public async Task<IEnumerable<Product>> GetProductsByCategory(string categoryName)
         {
-            FilterDefinition<Product> filter = Builders<Product>.Filter.ElemMatch(p => p.Category, categoryName);
+            FilterDefinition<Product> filter = Builders<Product>.Filter.In("Category", new List<string> { categoryName});
 
             return await _catalogContext.Products.Find(filter).ToListAsync();
         }
