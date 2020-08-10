@@ -61,7 +61,7 @@ namespace Basket.API
             app.UseSwagger();
             app.UseSwaggerUI(s =>
             {
-                s.SwaggerEndpoint("swagger/v1/swagger.json", "Basket API V1");
+                s.SwaggerEndpoint("/swagger/v1/swagger.json", "Basket API V1");
             });
         }
     }

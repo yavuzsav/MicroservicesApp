@@ -18,12 +18,12 @@ namespace Basket.API.Controllers
             _basketRepository = basketRepository ?? throw new ArgumentNullException(nameof(basketRepository));
         }
 
-        [HttpGet]
+        [HttpGet("{userName}")]
         [ProducesResponseType(typeof(BasketCart), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<BasketCart>> GetBasket(string userName)
         {
             var basket = await _basketRepository.GetBasket(userName);
-            return Ok(basket);
+            return Ok(basket ?? new BasketCart(userName));
         }
 
         [HttpPost]
