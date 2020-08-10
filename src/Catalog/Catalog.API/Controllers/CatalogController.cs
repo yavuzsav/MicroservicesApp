@@ -77,6 +77,7 @@ namespace Catalog.API.Controllers
         }
 
         [HttpDelete("{id:length(24)}")]
+        [ProducesResponseType(typeof(void), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteProductById(string id)
         {
             return Ok(await _productRepository.Delete(id));
