@@ -12,7 +12,7 @@ namespace Ordering.Infrastructure.Data
     {
         public static async Task SeedAsync(OrderContext orderContext, ILoggerFactory loggerFactory, int retry = 0)
         {
-            int retryForAvailability = 1;
+            int retryForAvailability = retry;
             try
             {
                 await orderContext.Database.MigrateAsync();
@@ -25,7 +25,7 @@ namespace Ordering.Infrastructure.Data
             }
             catch (Exception e)
             {
-                if (retryForAvailability < retry)
+                if (retryForAvailability < 3)
                 {
                     retryForAvailability++;
                     var log = loggerFactory.CreateLogger<OrderContextSeed>();

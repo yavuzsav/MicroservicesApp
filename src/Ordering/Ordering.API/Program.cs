@@ -26,7 +26,7 @@ namespace Ordering.API
                 try
                 {
                     var orderContext = services.GetRequiredService<OrderContext>();
-                    OrderContextSeed.SeedAsync(orderContext, loggerFactory, 3).Wait();
+                    OrderContextSeed.SeedAsync(orderContext, loggerFactory).Wait();
                 }
                 catch (Exception e)
                 {
