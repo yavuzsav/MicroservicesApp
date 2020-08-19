@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Common\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
       <ProjectReference Include="..\Ordering.Application\Ordering.Application.csproj" />
       <ProjectReference Include="..\Ordering.Core\Ordering.Core.csproj" />
       <ProjectReference Include="..\Ordering.Infrastructure\Ordering.Infrastructure.csproj" />
