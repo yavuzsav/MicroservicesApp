@@ -1,7 +1,6 @@
 using System.Reflection;
 using AutoMapper;
 using EventBusRabbitMQ;
-using EventBusRabbitMQ.Producer;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Ordering.API.Extensions;
 using Ordering.API.RabbitMQ;
 using Ordering.Application.Handlers;
 using Ordering.Core.Repositories;
@@ -86,6 +86,7 @@ namespace Ordering.API
 
             app.UseSwagger();
             app.UseSwaggerUI(config => { config.SwaggerEndpoint("/swagger/v1/swagger.json", "Order API V1"); });
+            app.UseRabbitMQListener();
         }
     }
 }
