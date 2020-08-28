@@ -12,11 +12,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog",
-      "UpstreamHttpMethod": [
-        "GET",
-        "POST",
-        "PUT"
-      ]
+      "UpstreamHttpMethod": ["GET", "POST", "PUT"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/{id}",
@@ -28,10 +24,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog/{id}",
-      "UpstreamHttpMethod": [
-        "GET",
-        "DELETE"
-      ]
+      "UpstreamHttpMethod": ["GET", "DELETE"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/GetProductsByCategory/{categoryName}",
@@ -43,9 +36,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog/GetProductsByCategory/{categoryName}",
-      "UpstreamHttpMethod": [
-        "GET"
-      ]
+      "UpstreamHttpMethod": ["GET"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/GetProductsByName/{name}",
@@ -57,9 +48,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog/GetProductsByName/{name}",
-      "UpstreamHttpMethod": [
-        "GET"
-      ]
+      "UpstreamHttpMethod": ["GET"]
     },
     // Basket API
     {
@@ -72,10 +61,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket",
-      "UpstreamHttpMethod": [
-        "GET",
-        "POST"
-      ]
+      "UpstreamHttpMethod": ["GET", "POST"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Basket/{userName}",
@@ -87,10 +73,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket/{userName}",
-      "UpstreamHttpMethod": [
-        "GET",
-        "DELETE"
-      ]
+      "UpstreamHttpMethod": ["GET", "DELETE"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Basket/Checkout",
@@ -102,9 +85,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket/Checkout",
-      "UpstreamHttpMethod": [
-        "POST"
-      ]
+      "UpstreamHttpMethod": ["POST"]
     },
     // Order API
     {
@@ -117,9 +98,19 @@
         }
       ],
       "UpstreamPathTemplate": "/Order",
-      "UpstreamHttpMethod": [
-        "GET"
-      ]
+      "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Order/{userName}",
+      "DownstreamPathScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "orderingapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Order/{userName}",
+      "UpstreamHttpMethod": ["GET"]
     }
   ]
 }
